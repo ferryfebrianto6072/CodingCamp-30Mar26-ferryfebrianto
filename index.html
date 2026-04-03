@@ -9,6 +9,7 @@
 <body>
   <header>
     <h1>Expense Tracker</h1>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
   </header>
 
   <section id="balance">
@@ -31,12 +32,12 @@
       <input type="number" id="amount" name="amount" placeholder="e.g. 12.50" min="0" step="any">
 
       <label for="category">Category</label>
-      <select id="category" name="category">
-        <option value="">-- Select Category --</option>
-        <option value="Food">Food</option>
-        <option value="Transport">Transport</option>
-        <option value="Fun">Fun</option>
-      </select>
+      <select id="category" name="category"></select>
+      <div id="new-category-row" style="display:none;">
+        <input type="text" id="new-category-input" placeholder="New category name">
+        <button type="button" id="new-category-confirm">Add</button>
+        <button type="button" id="new-category-cancel">Cancel</button>
+      </div>
 
       <button type="submit">Add Transaction</button>
       <div id="form-errors"></div>
@@ -44,7 +45,10 @@
   </section>
 
   <section id="list">
-    <h2>Transactions</h2>
+    <div id="list-header">
+      <h2>Transactions</h2>
+      <select id="category-filter"></select>
+    </div>
   </section>
 
   <script src="chart.min.js"></script>
